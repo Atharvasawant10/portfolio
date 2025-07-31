@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atharva Sunil Sawant | Full Stack Python Developer</title>
+
+  <!-- Font Awesome for skill logos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+ <style>
+  :root {
+    --primary-color: #ac1f81ad;
+    --secondary-color: #767be7;
+    --text-color: #070606c9;
+    --bg-color: #f4f4f4;
+    --white: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header, footer {
+    background-color: #222;
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--secondary-color);
+  }
+
+  .banner {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .banner h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .banner h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--white);
+    color: var(--primary-color);
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+  }
+
+  section {
+    padding: 2.5rem 1.5rem;
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+  }
+
+  section h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  .skill-card {
+    background-color: var(--white);
+    border-left: 5px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 250px;
+    text-align: left;
+  }
+
+  .skill-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .skill-card i {
+    margin-right: 0.5rem;
+    color: var(--secondary-color);
+  }
+
+  .skill-card p {
+    font-size: 0.95rem;
+  }
+
+  .projects ul {
+    list-style-type: square;
+    padding-left: 2rem;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .projects li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--primary-color);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .social-icons a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: var(--secondary-color);
+  }
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode header, body.dark-mode footer {
+    background-color: #1f1f1f;
+  }
+
+  body.dark-mode .banner {
+    background-color: black;
+  }
+
+  body.dark-mode .btn {
+    background-color: #010a09fb;
+    color: #f8f2f2;
+  }
+
+  body.dark-mode .btn:hover {
+    background-color: #bb86fc;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .skill-card {
+    background-color: #1f1f1f;
+    border-left: 5px solid #bb86fc;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 1rem auto 0;
+    align-items: center;
+    width: 100%;
+  }
+
+  input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(172, 31, 129, 0.3);
+  }
+</style>
+
+</head>
+<body>
+
+  <header>
+    <h1>Atharva Sunil Sawant</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button onclick="toggleTheme()" style="margin-left: 1rem;">Toggle Theme</button>
+
+  </header>
+
+  <section class="banner">
+    <img src="D:\downloads\WhatsApp Image 2025-05-22 at 5.03.03 PM.jpeg"alt="Atharva Sawant" class="profile-pic">
+    <h1>Hi, I'm Atharva Sunil Sawant</h1>
+    <h2>Full Stack Python Developer</h2>
+    <p>I specialize in building robust web applications using Python and modern web technologies.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate Full Stack Python Developer who enjoys transforming ideas into functional, efficient, and user-friendly web applications. With a strong foundation in Python and frontend technologies, I strive to write clean, maintainable code and continuously improve my skills.</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3><i class="fab fa-python"></i>Python</h3>
+      </div>
+      <div class="skill-card">
+        <h3><i class="fab fa-html5"></i>HTML</h3>
+      </div>
+      <div class="skill-card">
+        <h3><i class="fab fa-css3-alt"></i>CSS</h3>
+      </div>
+      <div class="skill-card">
+        <h3><i class="fas fa-code"></i>C</h3>
+        </div>
+      <div class="skill-card">
+        <h3><i class="fas fa-laptop-code"></i>C++</h3>
+       </div>
+      <div class="skill-card">
+        <h3><i class="fas fa-database"></i>MySQL</h3>
+         </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Movers and Packers:</strong> A web-based logistics management platform to streamline the booking and tracking of relocation services.</li>
+      <li><strong>Smart Resume Analyzer:</strong> An intelligent system that analyzes resumes and provides instant feedback based on job role compatibility using Python and NLP.</li>
+    </ul>
+  </section>
+
+
+
+  <section id="contact">
+  <h2>Contact</h2>
+  <form id="contactForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea><br />
+
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+
+  <footer>
+     <div class="social-icons">
+    <a href="mailto:atharvasunilsawant10@gmail.com" target="_blank" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/atharvasawant" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/atharvasawant" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+  <p>&copy; 2025 Atharva Sunil Sawant. All rights reserved.</p>
+  </footer>
+
+</body>
+
+<script>
+ 
+  function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return false;
+    }
+
+    alert("Message sent successfully!");
+    return true;
+  }
+
+</script>
+</html>
