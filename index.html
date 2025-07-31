@@ -348,7 +348,9 @@
 </body>
 
 <script>
- 
+  function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+  }
   function validateForm() {
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
